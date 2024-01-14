@@ -1,14 +1,19 @@
 name: Python application test with Github Actions
+
 on: [push]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python 3.9.18
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v2
       with:
         python-version: 3.9.18
+
     - name: Install dependencies
       run: |
         make install
@@ -16,7 +21,6 @@ jobs:
     - name: Lint with Pylint
       run: |
         make lint
-
 
     - name: Test with pytest
       run: |
